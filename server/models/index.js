@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 mongoose.set("debug", true);
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/warbler", {
- keepAlive: true,
- useMongoClient: true
-});
+
+const uri = 'mongodb://localhost:27017';
+
+const client = mongoose.connect(uri);
+
+module.exports.User = require("./user");
